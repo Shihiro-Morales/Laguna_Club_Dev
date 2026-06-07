@@ -5,10 +5,59 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { Bed, UtensilsCrossed, Waves, Sun, TreePine, Droplets, Leaf, Mountain, MapPin, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { HeroSection } from "@/components/sections/hero-section"
+import { HeroCarousel } from "@/components/sections/hero-carousel"
 import { SectionHeading } from "@/components/sections/section-heading"
 import { ServiceCard } from "@/components/cards/service-card"
 import { useLanguage } from "@/components/providers/language-provider"
+
+// Hero Carousel Slides - Promotional Images
+const heroSlides = [
+  {
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-pKYmxtWd6W39ljaXO3kVzkXLVoL3zH.png",
+    subtitle: "Hotel Laguna Beach Club - Laguna de Apoyo, Masaya",
+    title: "¡Escapada al Paraíso!",
+    highlight: "Hasta 30% de Descuento en tu Estadía",
+    description: "Reserva Ahora: www.lagunabeachclub.ni | +505 8888 8888",
+    details: ["Oferta Válida hasta 31 de Octubre"],
+    primaryCta: { text: "Reservar Ahora", href: "/reservaciones" },
+    secondaryCta: { text: "Ver Alojamiento", href: "/alojamiento" },
+  },
+  {
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-UHjPGmuyxjlrViw87c87W1Q2IcCzq1.png",
+    subtitle: "Exclusivo - Pase de Día (Day Pass) VIP",
+    title: "Día de Lujo",
+    highlight: "Precio Especial: $45 USD",
+    details: [
+      "Piscina Infinity & Toalla VIP",
+      "Playa Privada Acceso Total",
+      "Uso de Kayaks & SUP",
+      "Cóctel de Bienvenida & Almuerzo Gourmet",
+      "Lounge Area & Hammocks",
+    ],
+    primaryCta: { text: "Reservar Day Pass", href: "/el-resort/day-pass" },
+    secondaryCta: { text: "Más Información", href: "/el-resort" },
+  },
+  {
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-gmXPWcvHUd2TkmnrMJKfQLQXTlNRxc.png",
+    subtitle: "Hotel Laguna Beach Club - Laguna de Apoyo, Masaya",
+    title: "¡Tu Mes de Junio Soñado, Con Descuento!",
+    highlight: "Reserva tu Estadía de Junio Hasta un 30% Menos",
+    description: "Visita: https://lagunabeachclub-web.vercel.app/ | +505 8234 5678",
+    details: ["Oferta Válida para Estancias del 1 al 30 de Junio"],
+    primaryCta: { text: "Reservar Junio", href: "/reservaciones" },
+    secondaryCta: { text: "Ver Ofertas", href: "/alojamiento" },
+  },
+  {
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-P45syCIqDIvuSncGNMm5SiO2fS9d3g.png",
+    subtitle: "Hotel Laguna Beach Club - Laguna de Apoyo, Masaya",
+    title: "¡Tu Mes de Junio Soñado, Con Descuento!",
+    highlight: "Reserva tu Estadía de Junio Hasta un 30% Menos",
+    description: "Visita: https://lagunabeachclub-web.vercel.app/ | +505 8234 5678",
+    details: ["Oferta Válida para Estancias del 1 al 30 de Junio"],
+    primaryCta: { text: "Reservar Ahora", href: "/reservaciones" },
+    secondaryCta: { text: "Explorar Resort", href: "/el-resort" },
+  },
+]
 
 const galleryImages = [
   "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&q=80",
@@ -74,14 +123,10 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero Section */}
-      <HeroSection
-        title={t.home.heroTitle}
-        subtitle={t.home.heroSubtitle}
-        description={t.home.heroDescription}
-        backgroundImage="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80"
-        primaryCta={{ text: t.home.ctaBook, href: "/reservaciones" }}
-        secondaryCta={{ text: t.home.ctaExplore, href: "/el-resort" }}
+      {/* Hero Carousel Section */}
+      <HeroCarousel
+        slides={heroSlides}
+        autoPlayInterval={7000}
         showScrollIndicator
         height="full"
       />
